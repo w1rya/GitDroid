@@ -41,12 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        btnCity.setOnClickListener {
-            val user = editCity.text.toString()
-            if (user.isEmpty()) return@setOnClickListener
-            userViewModel.setUser(user)
-        }
-
         rv_user.setHasFixedSize(true)
     }
 
