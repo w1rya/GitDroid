@@ -88,5 +88,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSelectedUser(user: User) {
         Toast.makeText(this, "${user.username}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.USERNAME, user.username)
+        startActivity(intent)
     }
 }
