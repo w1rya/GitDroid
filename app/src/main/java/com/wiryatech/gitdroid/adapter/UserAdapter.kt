@@ -14,6 +14,12 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ListViewHolder>() {
 
     private val mData = ArrayList<User>()
 
+    private var onItemClickCallback: OnItemClickCallback? = null
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     fun setData(items: ArrayList<User>){
         mData.clear()
         mData.addAll(items)
@@ -42,7 +48,13 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ListViewHolder>() {
                     .into(iv_avatar)
 
                 tv_username.text = user.username
+
+                itemView.setOnClickListener { onItemClickCallback?.onItemClicked(user) }
             }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: User)
     }
 }

@@ -26,20 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = UserAdapter()
-        adapter.notifyDataSetChanged()
-
-        rv_user.layoutManager = LinearLayoutManager(this)
-        rv_user.adapter = adapter
-
-        userViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-                .get(UserViewModel::class.java)
-
-        userViewModel.getUsers().observe(this, Observer { userItems ->
-            if (userItems != null) {
-                adapter.setData(userItems)
-            }
-        })
+        showRecyclerView()
 
         rv_user.setHasFixedSize(true)
     }
@@ -74,5 +61,32 @@ class MainActivity : AppCompatActivity() {
             }
             else -> false
         }
+    }
+
+    private fun showRecyclerView() {
+        adapter = UserAdapter()
+        adapter.notifyDataSetChanged()
+
+        rv_user.layoutManager = LinearLayoutManager(this)
+        rv_user.adapter = adapter
+
+        userViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+            .get(UserViewModel::class.java)
+
+        userViewModel.getUsers().observe(this, Observer { userItems ->
+            if (userItems != null) {
+                adapter.setData(userItems)
+            }
+        })
+
+        adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: User) {
+                showSelectedUser(data)
+            }
+        })
+    }
+
+    private fun showSelectedUser(user: User) {
+        Toast.makeText(this, "${user.username}", Toast.LENGTH_SHORT).show()
     }
 }
