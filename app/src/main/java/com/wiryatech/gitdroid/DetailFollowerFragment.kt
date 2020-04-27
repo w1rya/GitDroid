@@ -25,8 +25,6 @@ class DetailFollowerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        showRecyclerView()
-        rv_follower.setHasFixedSize(true)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_follower, container, false)
     }
@@ -37,6 +35,8 @@ class DetailFollowerFragment : Fragment() {
         if (arguments != null) {
             val username = arguments?.getString(USERNAME)
             followerViewModel.setFollower(username.toString())
+            showRecyclerView()
+            rv_follower.setHasFixedSize(true)
         }
     }
 
