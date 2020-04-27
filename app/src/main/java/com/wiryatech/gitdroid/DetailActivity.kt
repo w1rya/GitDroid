@@ -34,6 +34,11 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.elevation = 0f
 
+        val mFollowerFragment = DetailFollowerFragment()
+        val mBundle = Bundle()
+        mBundle.putString(DetailFollowerFragment.USERNAME, username)
+        mFollowerFragment.arguments = mBundle
+
 //        if (savedInstanceState == null) {
 //            supportFragmentManager.beginTransaction()
 //                .replace(R.id.container, DetailFragment.newInstance())

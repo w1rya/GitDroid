@@ -7,20 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wiryatech.gitdroid.R
-import com.wiryatech.gitdroid.model.User
+import com.wiryatech.gitdroid.model.Follower
 import kotlinx.android.synthetic.main.item_user.view.*
 
-class UserAdapter : RecyclerView.Adapter<UserAdapter.ListViewHolder>() {
+class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.ListViewHolder>() {
 
-    private val mData = ArrayList<User>()
+    private val mData = ArrayList<Follower>()
 
-    private var onItemClickCallback: OnItemClickCallback? = null
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
-
-    fun setData(items: ArrayList<User>){
+    fun setData(items: ArrayList<Follower>){
         mData.clear()
         mData.addAll(items)
         notifyDataSetChanged()
@@ -40,21 +34,15 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ListViewHolder>() {
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(user: User) {
+        fun bind(follower: Follower) {
             with(itemView) {
                 Glide.with(itemView.context)
-                    .load(user.avatar)
-                    .apply(RequestOptions().override(64, 64))
+                    .load(follower.avatar)
+                    .apply(RequestOptions().override(64,64))
                     .into(iv_avatar)
 
-                tv_username.text = user.username
-
-                itemView.setOnClickListener { onItemClickCallback?.onItemClicked(user) }
+                tv_username.text = follower.username
             }
         }
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: User)
     }
 }

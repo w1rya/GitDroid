@@ -1,6 +1,6 @@
-package com.wiryatech.gitdroid
+package com.wiryatech.gitdroid.model
 
-class User {
+class Follower {
 
     var username: String? = null
     var avatar: String? = null

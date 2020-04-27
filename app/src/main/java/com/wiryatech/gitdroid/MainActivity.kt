@@ -14,14 +14,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wiryatech.gitdroid.adapter.UserAdapter
-import com.wiryatech.gitdroid.model.UserViewModel
+import com.wiryatech.gitdroid.model.User
+import com.wiryatech.gitdroid.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var userViewModel: UserViewModel
-    lateinit var adapter: UserAdapter
+    private lateinit var adapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

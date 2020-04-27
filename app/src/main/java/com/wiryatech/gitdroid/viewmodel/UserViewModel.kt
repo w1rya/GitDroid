@@ -1,4 +1,4 @@
-package com.wiryatech.gitdroid.model
+package com.wiryatech.gitdroid.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
-import com.wiryatech.gitdroid.User
+import com.wiryatech.gitdroid.model.User
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
