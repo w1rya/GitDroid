@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 if (query.isEmpty()) return false
+                loadingIndicator(true)
                 userViewModel.setUser(query)
                 return true
             }
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         userViewModel.getUsers().observe(this, Observer { userItems ->
             if (userItems != null) {
                 adapter.setData(userItems)
+                loadingIndicator(false)
             }
         })
 
@@ -92,5 +95,13 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(DetailActivity.USERNAME, user.username)
         intent.putExtra(DetailActivity.AVATAR, user.avatar)
         startActivity(intent)
+    }
+
+    private fun loadingIndicator(state: Boolean) {
+        if (state) {
+            progress_bar.visibility = View.VISIBLE
+        } else {
+            progress_bar.visibility = View.GONE
+        }
     }
 }
