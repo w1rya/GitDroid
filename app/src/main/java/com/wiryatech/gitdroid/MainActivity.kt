@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "${user.username}", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.USERNAME, user.username)
+        intent.putExtra(DetailActivity.AVATAR, user.avatar)
         startActivity(intent)
     }
 }
