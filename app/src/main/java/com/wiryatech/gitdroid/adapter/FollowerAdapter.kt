@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wiryatech.gitdroid.R
 import com.wiryatech.gitdroid.model.Follower
-import kotlinx.android.synthetic.main.item_user.view.*
+import kotlinx.android.synthetic.main.item_detail.view.*
 
 class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.ListViewHolder>() {
 
@@ -21,7 +21,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.ListViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_detail, parent, false)
         return ListViewHolder(view)
     }
 
