@@ -38,11 +38,5 @@ class DetailActivity : AppCompatActivity() {
         val mBundle = Bundle()
         mBundle.putString(DetailFollowerFragment.USERNAME, username)
         mFollowerFragment.arguments = mBundle
-
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.container, DetailFragment.newInstance())
-//                .commitNow()
-//        }
     }
 }

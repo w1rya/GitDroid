@@ -35,9 +35,9 @@ class DetailFollowerFragment : Fragment() {
         if (arguments != null) {
             val username = arguments?.getString(USERNAME)
             followerViewModel.setFollower(username.toString())
-            showRecyclerView()
-            rv_follower.setHasFixedSize(true)
         }
+        showRecyclerView()
+        rv_follower.setHasFixedSize(true)
     }
 
     private fun showRecyclerView() {

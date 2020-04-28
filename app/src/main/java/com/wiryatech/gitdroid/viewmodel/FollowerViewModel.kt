@@ -8,6 +8,7 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.wiryatech.gitdroid.model.Follower
 import cz.msebera.android.httpclient.Header
+import org.json.JSONArray
 import org.json.JSONObject
 
 class FollowerViewModel : ViewModel() {
@@ -31,11 +32,10 @@ class FollowerViewModel : ViewModel() {
             ) {
                 try {
                     val result = String(responseBody)
-                    val responseObject = JSONObject(result)
-                    val items = responseObject.getJSONArray("")
+                    val responseObject = JSONArray(result)
 
-                    for (i in 0 until items.length()) {
-                        val follower = items.getJSONObject(i)
+                    for (i in 0 until responseObject.length()) {
+                        val follower = responseObject.getJSONObject(i)
                         val followerItems = Follower()
                         followerItems.username = follower.getString("login")
                         followerItems.avatar = follower.getString("avatar_url")
