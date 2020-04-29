@@ -2,6 +2,7 @@ package com.wiryatech.gitdroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -38,5 +39,6 @@ class DetailActivity : AppCompatActivity() {
         val mBundle = Bundle()
         mBundle.putString(DetailFollowerFragment.USERNAME, username)
         mFollowerFragment.arguments = mBundle
+        Log.d("BundleFragment", mFollowerFragment.arguments.toString())
     }
 }

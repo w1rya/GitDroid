@@ -1,6 +1,7 @@
 package com.wiryatech.gitdroid
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,8 @@ class DetailFollowerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val test = arguments?.getString(USERNAME)
+        Log.d("BundleFragment1", test.toString())
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_follower, container, false)
     }
@@ -32,8 +35,10 @@ class DetailFollowerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Log.d("BundleFragment1", "$savedInstanceState, $arguments")
         if (arguments != null) {
             val username = arguments?.getString(USERNAME)
+            Log.d("BundleFragment1", "$arguments")
             followerViewModel.setFollower(username.toString())
         }
         showRecyclerView()
