@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wiryatech.gitdroid.adapter.UserAdapter
 import com.wiryatech.gitdroid.model.User
+import com.wiryatech.gitdroid.ui.detail.DetailActivity
 import com.wiryatech.gitdroid.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 

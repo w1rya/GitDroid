@@ -1,4 +1,4 @@
-package com.wiryatech.gitdroid
+package com.wiryatech.gitdroid.ui.detail
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.wiryatech.gitdroid.R
 import com.wiryatech.gitdroid.adapter.FollowerAdapter
 import com.wiryatech.gitdroid.viewmodel.FollowerViewModel
 import kotlinx.android.synthetic.main.fragment_detail_follower.*
@@ -35,14 +36,15 @@ class DetailFollowerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        showRecyclerView()
+        rv_follower.setHasFixedSize(true)
+
         Log.d("BundleFragment1", "$savedInstanceState, $arguments")
         if (arguments != null) {
             val username = arguments?.getString(USERNAME)
             Log.d("BundleFragment1", "$arguments")
             followerViewModel.setFollower(username.toString())
         }
-        showRecyclerView()
-        rv_follower.setHasFixedSize(true)
     }
 
     private fun showRecyclerView() {
