@@ -27,8 +27,8 @@ class DetailFollowerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val test = arguments?.getString(USERNAME)
-        Log.d("BundleFragment1", test.toString())
+//        val test = arguments?.getString(USERNAME)
+//        Log.d("BundleFragment1", test.toString())
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_follower, container, false)
     }
@@ -38,6 +38,7 @@ class DetailFollowerFragment : Fragment() {
 
         showRecyclerView()
         rv_follower.setHasFixedSize(true)
+        loadingIndicator(true)
 
         Log.d("BundleFragment1", "$savedInstanceState, $arguments")
         if (arguments != null) {
@@ -60,7 +61,17 @@ class DetailFollowerFragment : Fragment() {
         followerViewModel.getFollowers().observe(viewLifecycleOwner, Observer { followerItems ->
             if (followerItems != null) {
                 adapter.setData(followerItems)
+                loadingIndicator(false)
             }
         })
     }
+
+    private fun loadingIndicator(state: Boolean) {
+        if (state) {
+            progress_bar.visibility = View.VISIBLE
+        } else {
+            progress_bar.visibility = View.GONE
+        }
+    }
+
 }

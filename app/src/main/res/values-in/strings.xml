@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitDroid</string>
+    <string name="follower">Pengikut</string>
+    <string name="following">Mengikuti</string>
+
+    <string name="search">Cari</string>
+    <string name="user_name">namapengguna</string>
+    <string name="name">Nama</string>
+    <string name="change_language">Ganti Bahasa</string>
+</resources>

@@ -42,9 +42,10 @@ class DetailActivity : AppCompatActivity() {
 
         val mBundle = Bundle()
         mBundle.putString(DetailFollowerFragment.USERNAME, username)
-        val mFollowerFragment =
-            DetailFollowerFragment()
+        val mFollowerFragment = DetailFollowerFragment()
         mFollowerFragment.arguments = mBundle
+        val mFollowingFragment = DetailFollowingFragment()
+        mFollowingFragment.arguments = mBundle
         Log.d("BundleFragment", mFollowerFragment.arguments.toString())
     }
 }

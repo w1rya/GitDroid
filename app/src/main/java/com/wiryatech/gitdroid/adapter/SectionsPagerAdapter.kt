@@ -31,15 +31,19 @@ class SectionsPagerAdapter(private val mContext: Context, fragmentManager: Fragm
         var fragment: Fragment? = null
         when (position) {
             0 -> {
-                fragment =
-                    DetailFollowerFragment()
+                fragment = DetailFollowerFragment()
                 val mBundle = Bundle()
                 mBundle.putString(USERNAME, getData())
                 fragment.arguments = mBundle
                 Log.d("BundleFragmentVP", fragment.arguments.toString())
             }
-            1 -> fragment =
-                DetailFollowingFragment()
+            1 -> {
+                fragment = DetailFollowingFragment()
+                val mBundle = Bundle()
+                mBundle.putString(USERNAME, getData())
+                fragment.arguments = mBundle
+                Log.d("BundleFragmentVP1", fragment.arguments.toString())
+            }
         }
         return fragment as Fragment
     }

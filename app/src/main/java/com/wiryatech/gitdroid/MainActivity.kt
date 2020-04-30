@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -59,8 +60,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.detail -> {
-                startActivity(Intent(this, DetailActivity::class.java))
+            R.id.language -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
                 true
             }
             else -> false
@@ -106,4 +107,5 @@ class MainActivity : AppCompatActivity() {
             progress_bar.visibility = View.GONE
         }
     }
+
 }

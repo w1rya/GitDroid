@@ -52,10 +52,8 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_detail"
                 app:tabTextColor="@android:color/white"
-                app:tabIndicator="@color/colorAccent"
-                app:tabGravity="fill"
-                app:tabMode="fixed"
-                android:background="@color/colorPrimaryDark"
+                android:background="?attr/colorPrimaryDark"
+                app:tabIndicatorColor="?attr/colorAccent"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
