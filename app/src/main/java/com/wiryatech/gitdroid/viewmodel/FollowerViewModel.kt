@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.wiryatech.gitdroid.BuildConfig
 import com.wiryatech.gitdroid.model.Follower
 import cz.msebera.android.httpclient.Header
 import org.json.JSONArray
@@ -18,7 +19,7 @@ class FollowerViewModel : ViewModel() {
     fun setFollower(username: String) {
         val listItems = ArrayList<Follower>()
 
-        val apiKey = "1ec3900a49ec284ebfad23aeec5a3065f6b119c6"
+        val apiKey = BuildConfig.API_KEY
         val url = "https://api.github.com/users/$username/followers"
 
         val asyncClient = AsyncHttpClient()

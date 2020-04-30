@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.wiryatech.gitdroid.BuildConfig
 import com.wiryatech.gitdroid.model.User
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
@@ -17,7 +18,7 @@ class UserViewModel : ViewModel() {
     fun setUser(username: String) {
         val listItems = ArrayList<User>()
 
-        val apiKey = "1ec3900a49ec284ebfad23aeec5a3065f6b119c6"
+        val apiKey = BuildConfig.API_KEY //"1ec3900a49ec284ebfad23aeec5a3065f6b119c6"
         val url = "https://api.github.com/search/users?q=$username"
 
         val asyncClient = AsyncHttpClient()

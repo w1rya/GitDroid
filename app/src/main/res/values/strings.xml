@@ -7,4 +7,5 @@
     <string name="user_name">username</string>
     <string name="name">Name</string>
     <string name="change_language">Change Language</string>
+    <string name="header">Header</string>
 </resources>
